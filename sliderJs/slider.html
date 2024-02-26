@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Slider Js</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="main">
+            <img class="slides" src="https://picsum.photos/id/237/200/300" alt="">
+            <img class="slides" src="https://picsum.photos/id/238/200/300" alt="">
+            <img class="slides" src="https://picsum.photos/id/239/200/300" alt="">
+            <img class="slides" src="https://picsum.photos/id/233/200/300" alt="">
+        </div>
+        <div class="btnSlider">
+            <button id="next">Next</button>
+            <button id="prev">prev</button>
+        </div>
+    </div>
+
+</body>
+<script>
+    const slides = document.querySelectorAll(".slides");
+    const next = document.getElementById("next");
+    const prev = document.getElementById("prev");
+    let number = 0;
+
+    slides.forEach((slide, index) => {
+        slide.style.left = `${index * 100}%`
+    })
+
+    const slideImg = () => {
+        slides.forEach((e) => {
+            e.style.transform = `translateX(-${number * 100}%)`
+        })
+    }
+
+    next.addEventListener('click', () => {
+        if (number === 0) {
+            // number = 3
+            // slideImg();
+        } else {
+            number--
+            slideImg();
+        }
+    })
+    prev.addEventListener('click', () => {
+        if (number === 3) {
+            
+        } else {
+            number++
+            slideImg();
+        }
+    })
+</script>
+
+</html>
